@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+          @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+      
+          input[type='text']:required:valid, input[type='password']:required:valid, input[type="date"]:required:valid,input[type='number']:required:valid,input[type='email']:required:valid,.cc
+          {
+          	background: green;
+          }
+          input[type='text']:required:invalid, input[type='password']:invalid,input[type='email']:invalid, input[type='date']:invalid,input[type='number']:invalid     {
+          	background:red;
+          }
+
+		  input[type='number']:invalid{
+			background:red;
+		  }
+
+    </style>
+    <script>
+    function checkEmail() {
+        var pass1 = document.getElementById("Password");
+        var pass2 = document.getElementById("rePassword");
+
+        if (pass1.value != pass2.value) {
+
+        	 //pass2.setCustomValidity("Password not matched!");
+        pass2.setCustomValidity("Password not matched.");
+        }
+        else {
+    //input.setCustomValidity('');
+        document.getElementById("error").innerHTML ="";
+        }
+        }
+</script>
+</head>
+<body>
+	
+<div style="padding:200px; margin-left:150px;">
+	<table style="border: 1px solid black; padding:20px;">
+  
+		<form action="" method="POST" onsubmit ="return checkPass()">
+            <tr>
+                <td>
+                    <center><h2>Registation</h2></center>
+                </td>
+            </tr>
+			<tr>
+				<td>
+					<label for="username">
+						Username: 
+					</label>
+				</td>
+				<td><input type="text" id="username" required="required"/>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="Password">
+                    Password:
+					</label>
+				</td>
+				<td><input  type="Password" id="Password" name="" required pattern="[a-zA-Z0-9]{8}" title = "English Characters"/>
+				</td>
+			</tr>
+            <tr>
+				<td><label for="rePassword">
+                    Retype-Password: 
+					</label>
+				</td>
+				<td><input id="rePassword" type="Password" required pattern="[a-zA-Z0-9]{8}" title="English Character" onkeyup="return checkpass()"/>
+						<span id="error"></span>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="email">
+                    Email:
+					</label>
+				</td>
+				<td><input type="email" id="email" required="required"/>
+				</td>
+            </tr>
+            <tr>
+                <td><label for="DOB">
+                    DOB:
+                    </label>
+                 </td>
+                 <td><input type="date" id="date"></td>
+            </tr>
+			<tr>
+				<td><label for="cno">
+						Creadit Card:
+					</label>
+				</td>
+				<td><input type="number" id="cno" />
+				</td>
+			</tr>
+            <tr>
+				<td><label for="pno">
+						Post Code:
+					</label>
+				</td>
+				<td><input type="number" id="pno" requiredpattern="[a-zA-Z0-9]{4}"/>
+				</td>
+			</tr>
+            <tr style="margin-left: 50px;">
+                <td></td>
+                <td><button type="submit">Submit</button>
+                <button type="reset">Reset</button></td>
+            </tr>
+		</form>
+    
+	</table>
+</div>
+
+</body>
+
+</html>
